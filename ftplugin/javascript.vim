@@ -26,7 +26,7 @@ function! s:FlowCoverageRefresh()
   endif
 
   let command = g:flow#flowpath . ' coverage ' . g:flow#flags
-  let result = jobstart(command, getline(1, '$'))
+  let result = jobstart([command, getline(1, '$')])
 
   if v:shell_error > 0 || empty(result)
     let b:flow_coverage_status = ''
